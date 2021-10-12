@@ -22,4 +22,5 @@ urlpatterns = [
     path('password-reset-confirm/<uidb64>/<token>/',
          TemplateView.as_view(), name='password_reset_confirm'),
     path('api/users/auth/', include('users.urls')),
+    path('api/', include('friends.urls')),
 ]
