@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',  # Needed for allauth
 
     # 3rd part apps
     'rest_framework',
