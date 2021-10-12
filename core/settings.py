@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',  # Needed for allauth
 
     # 3rd part apps
     'rest_framework',
@@ -53,6 +54,9 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'dj_rest_auth.registration',
     'corsheaders',
+
+    # Local apps
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -159,10 +163,10 @@ AUTHENTICATION_BACKENDS = [
 ]
 ACCOUNT_AUTHENTICATION_METHOD = 'email'
 ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_USERNAME_REQUIRED = False
-ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+ACCOUNT_USERNAME_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = 'optional'
 ACCOUNT_CONFIRM_EMAIL_ON_GET = True
-ACCOUNT_ADAPTER = 'users.adapters.CustomAcountAdapter'
+# ACCOUNT_ADAPTER = 'users.adapters.CustomAcountAdapter'
 # LOGIN_URL = 'http://localhost:8000/api/users/auth/login'
 EMAIL_BACKEND = os.environ.get('EMAIL_BACKEND')
 EMAIL_USE_TLS = os.environ.get('EMAIL_USE_TLS')
